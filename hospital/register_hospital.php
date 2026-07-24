@@ -14,38 +14,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 $areas = $conn->query("SELECT area_id, area_name FROM Area ORDER BY area_name");
 ?>
-
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Register Hospital</title>
-    <link rel="stylesheet" href="../assets/style.css">
-</head>
+<head><title>Register Hospital</title><link rel="stylesheet" href="../assets/style.css"></head>
 <body>
+    <h1>Register a Hospital</h1>
+    <form method="POST">
+        <label>Hospital Name:</label>
+        <input type="text" name="name" required><br><br>
 
-<h1>Register a Hospital</h1>
+        <label>Phone:</label>
+        <input type="text" name="phone" required><br><br>
 
-<form method="POST">
+        <label>Area:</label>
+        <select name="area_id" required>
+            <?php while ($row = $areas->fetch_assoc()) { ?>
+                <option value="<?= $row['area_id'] ?>"><?= $row['area_name'] ?></option>
+            <?php } ?>
+        </select><br><br>
 
-    <label>Hospital Name:</label>
-    <input type="text" name="name" required><br><br>
-
-    <label>Phone:</label>
-    <input type="text" name="phone" required><br><br>
-
-    <label>Area:</label>
-    <select name="area_id" required>
-        <?php while ($row = $areas->fetch_assoc()) { ?>
-            <option value="<?= $row['area_id'] ?>">
-                <?= $row['area_name'] ?>
-            </option>
-        <?php } ?>
-    </select>
-    <br><br>
-
-    <button type="submit">Register</button>
-
-</form>
-
+        <button type="submit">Register</button>
+    </form>
 </body>
 </html>
