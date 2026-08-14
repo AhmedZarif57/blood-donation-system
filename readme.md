@@ -4,8 +4,9 @@
 1. Install XAMPP, start Apache + MySQL.
 2. Clone this repo into `C:\xampp\htdocs\`.
 3. Open phpMyAdmin (`http://localhost/phpmyadmin`), create a database named
-   `blood_donation_db`, then import `schema.sql` via the SQL tab.
+   `blood_donation_db`, then import `blood_data.sql` via the SQL tab.
 4. Visit `http://localhost/blood_donation/index.php` to confirm it connects.
+5. Add Data on the team's Behalf
 
 ## Folder Rules
 - Only edit files inside YOUR assigned folder (donor/, hospital/, inventory/, donation/, admin/).
